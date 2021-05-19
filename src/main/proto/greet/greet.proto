@@ -20,5 +20,5 @@ message GreetResponse {
 
 service GreetService {
     // Unary Communication
-    rpc greet(GreetRequest) returns (GreetResponse){};
+    rpc greet(GreetRequest) returns (GreetResponse);
 }
