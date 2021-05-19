@@ -6,9 +6,11 @@ import org.lognet.springboot.grpc.GRpcService;
 
 import java.util.Arrays;
 
-@GRpcService public class GreetingService extends GreetServiceGrpc.GreetServiceImplBase {
+@GRpcService
+public class GreetingService extends GreetServiceGrpc.GreetServiceImplBase {
 
-    @Override public void greet(GreetRequest request, StreamObserver<GreetResponse> responseObserver) {
+    @Override
+    public void greet(GreetRequest request, StreamObserver<GreetResponse> responseObserver) {
         // extracting value from request
         Greeting greeting = request.getGreeting();
         final String firstName = greeting.getFirstName();
@@ -22,7 +24,8 @@ import java.util.Arrays;
         responseObserver.onCompleted();
     }
 
-    @Override public void greetManyTimes(GreetManyTimesRequest request, StreamObserver<GreetManyTimesResponse> responseObserver) {
+    @Override
+    public void greetManyTimes(GreetManyTimesRequest request, StreamObserver<GreetManyTimesResponse> responseObserver) {
         int[] indexes = {1, 2, 3, 4, 5};
         Arrays.stream(indexes)
                 .forEach(index -> {
